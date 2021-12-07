@@ -1,31 +1,23 @@
 pipeline {
-  agent any 
-  environment {
-    PATH = "/opt/apache-maven-3.8.4/bin:$PATH"
-  }
-  stages {
-    stage ("build"){
-      steps{
-   echo 'Building application'
-      }
+    agent any
+    tools { 
+        maven 'Maven 3.3.9' 
+        jdk 'jdk8' 
     }
-    
-    stage ("test"){
-      steps{
-   echo 'testing application'
-      }
-    }
-    
-     stage("Build with Maven") {
-  
-        steps{
-         
-                   echo 'testing application'
+    stages {
+        stage ('Initialize') {
+            steps {
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                ''' 
+            }
+        }
 
-    sh "mvn -B -DskipTests clean package"
-          
+        stage ('Build') {
+            steps {
+                echo 'This is a minimal pipeline.'
+            }
         }
     }
-    
-  }
 }
