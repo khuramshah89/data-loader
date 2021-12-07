@@ -13,7 +13,8 @@ pipeline {
       }
     }
     
-     stage('Build with Maven') {
+     stage("Build with Maven") {
+          echo 'testing application'
         container('maven'){
          
                 
