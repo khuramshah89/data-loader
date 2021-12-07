@@ -18,8 +18,8 @@ pipeline {
         steps{
          
                    echo 'testing application'
-  def mvnHome = tool name: 'Apache Maven 3.6.0', type: 'maven'
-    sh "${mvnHome}/bin/mvn -B -DskipTests clean package"
+
+    sh "mvn -B -DskipTests clean package"
           
         }
     }
