@@ -12,5 +12,16 @@ pipeline {
    echo 'testing application'
       }
     }
+    
+     stage('Build with Maven') {
+        container('maven'){
+         
+                
+                sh ("mvn -B -DskipTests clean package")
+
+           
+        }
+    }
+    
   }
 }
