@@ -18,7 +18,7 @@ pipeline {
         steps{
          
                    echo 'testing application'
-                sh ("mvn -B -DskipTests clean package")
+                sh ("mvn clean package -DskipTests ")
 
            
         }
