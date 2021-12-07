@@ -18,8 +18,10 @@ pipeline {
         steps{
          
                    echo 'testing application'
-                sh ("mvn clean package -DskipTests ")
 
+withMaven(maven: 'mvn') {
+            sh "mvn clean package  -DskipTests"
+        }
            
         }
     }
