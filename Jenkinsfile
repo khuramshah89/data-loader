@@ -19,9 +19,8 @@ pipeline {
          
                    echo 'testing application'
 
-withMaven(maven: 'mvn') {
             sh "mvn clean package  -DskipTests"
-        }
+
            
         }
     }
